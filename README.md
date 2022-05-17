@@ -15,7 +15,7 @@
 ## Automation part. Questions list
 
 1. ввода текста в поле
-   * css 
+   * css
       `cy.contains('some css selector').type('text') or cy.get('some css selector').type('text')`
    * xpath 
       `cy.xpath('sme xpath expression').type('text')` and I use xpath-cypress module
@@ -26,7 +26,7 @@
 4. что элемента нет
    `cy.get('element').should('not.exist')`
 5. ожидание появления или же исчезновения элемента
-   We can use `.should('be.visible') / .should('not.be.visible')` with or without ``.wait()` but it is bad practice. One of ways to resolve this problem - use cypress-wait-until third-party module.
+   We can use `.should('be.visible') / .should('not.be.visible')` with or without `.wait()` but it is bad practice. One of ways to resolve this problem - use cypress-wait-until third-party module.
 6. если элемент видим то сделать что-то
    `cy.get('element').should('be.visible').then($element => {DO SOMETHING})`
 7. как вытащить текст элемента
