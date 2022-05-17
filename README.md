@@ -15,8 +15,10 @@
 ## Automation part. Questions list
 
 1. ввода текста в поле
-   css `cy.contains('some css selector').type('text') or cy.get('some css selector').type('text')`
-   xpath `cy.xpath('sme xpath expression').type('text')` and I use xpath-cypress module
+   * css 
+      `cy.contains('some css selector').type('text') or cy.get('some css selector').type('text')`
+   * xpath 
+      `cy.xpath('sme xpath expression').type('text')` and I use xpath-cypress module
 2. для клика на кнопку
    `cy.get('button').click()`
 3. проверки что элемент есть
