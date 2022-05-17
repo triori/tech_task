@@ -37,3 +37,5 @@
    It is bad practice, but if I want to do that, I get `get.('body)` element and use `.then($body)` callback for use regular jQuery and JS constructions.
 10. как бороться с асинхронном?  
     In some cases `.wrap()` helps. In other cases we can use `.then()` promises constructions. Or we can try use third-party modules, that relized async-await.
+
+## And I implemented all of that in my project
