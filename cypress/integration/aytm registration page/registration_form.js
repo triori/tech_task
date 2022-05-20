@@ -7,7 +7,7 @@ describe('Check valid work registration form', () => {
     beforeEach(() => {
         cy.visit('https://aytm.com/users/new');
     });
-    
+
     it('Fill all fields with valid values', () => {
 
         //find First Name input by css and fill it
@@ -46,16 +46,34 @@ describe('Check valid work registration form', () => {
 
         //check that elemen is exists and DO SOMETHING if it is and DO SOMETHING ELSE in another case
         cy.get('body')
-        .then($body => {
-            if ($body.find('a').length > 0) {
-                cy.log('DO SOMETHING');
-            } else {
-                cy.log('DO SOMETHING ELSE');
-            }
-        });
+            .then($body => {
+                if ($body.find('a').length > 0) {
+                    cy.log('Element was <a> find').then(() => {
+                        expect(true).to.equal(true);
+                    });
+                } else {
+                    cy.log('Element <a> didn`t find').then(() => {
+                        expect(true).to.equal(false);
+                    });
+                }
+            });
+
+        //check that elemen is exists and DO SOMETHING if it is and DO SOMETHING ELSE in another case
+        cy.get('body')
+            .then($body => {
+                if ($body.find('video').length > 0) {
+                    cy.log('Element <video> was find').then(() => {
+                        expect(true).to.equal(false);
+                    });
+                } else {
+                    cy.log('Element <video> didn`t find').then(() => {
+                        expect(true).to.equal(true);
+                    });
+                }
+            });
 
         //find some element and get text from it
-        cy.contains('Have a promocode?').then($elem => { 
+        cy.contains('Have a promocode?').then($elem => {
             const textFromElemnt = $elem.text();
             cy.log(textFromElemnt);
         })
