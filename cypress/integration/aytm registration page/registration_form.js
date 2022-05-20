@@ -76,6 +76,29 @@ describe('Check valid work registration form', () => {
         cy.contains('Have a promocode?').then($elem => {
             const textFromElemnt = $elem.text();
             cy.log(textFromElemnt);
-        })
+        });
+    });
+
+    //this test based on async code with handling error by conditions
+    it('Login form', () => {
+        cy.get('form[id="login"]').then($form => {
+            cy.log($form.is(':visible'))
+            if (!$form.is(':visible')) {
+                cy.contains('a', 'LOGIN').click();
+            }
+        }).
+            then(() => {
+                cy.get('#login_email').type(`test_email_${id}@email.com`);
+                cy.get('#login_password').type(`test_password_${id}`);
+            }).
+            then(() => {
+                cy.xpath('//li[@class="login"]//input').click()
+            }).
+            then(() => {
+                return cy.get('span[class="error"]')
+            }).
+            then($span => { 
+                $span.is(':visible') ? cy.log('LOGIN/PASSWORD ERR') : cy.log('OK')
+            })
     });
 })
